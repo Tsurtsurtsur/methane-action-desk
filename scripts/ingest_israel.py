@@ -169,7 +169,10 @@ def update(prior, raw_items, checked_at, query_days=LOOKBACK_DAYS):
         "last_scan_observations": len(recent),
         "last_scan_api_records": len(raw_items),
         "last_scan_metadata": {"gas_counts": {k: sum(str(r.get("gas")) == k for r in raw_items) for k in ("CH4", "CO2", "None")},
-                               "quality_good": sum(str(r.get("plume_quality", r.get("quality"))) == "good" for r in raw_items),
+                               "quality_good": sum(str(r.get("plume_quality") or r.get("quality")) == "good" for r in raw_items),
+                               "plume_quality_values": {k: sum(str(r.get("plume_quality")) == k for r in raw_items) for k in ("good", "questionable", "bad", "None")},
+                               "quality_values": {k: sum(str(r.get("quality")) == k for r in raw_items) for k in ("good", "questionable", "bad", "None")},
+                               "mission_phases": {k: sum(str(r.get("mission_phase")) == k for r in raw_items) for k in ("first_light", "production", "None")},
                                "inside_bbox": sum(isinstance(r.get("geometry_json"), dict) and isinstance(r["geometry_json"].get("coordinates"), list) and len(r["geometry_json"]["coordinates"]) >= 2 and inside(float(r["geometry_json"]["coordinates"][0]),float(r["geometry_json"]["coordinates"][1])) for r in raw_items)},
         "new_ids_since_previous_success": new_count,
         "first_baseline": prior.get("last_success_at") is None,
@@ -184,6 +187,8 @@ def main():
     checked = now()
     try:
         days = LOOKBACK_DAYS if prior.get("backfill_complete") else INITIAL_BACKFILL_DAYS
+        if os.getenv("GITHUB_EVENT_NAME") == "push":
+            days = INITIAL_BACKFILL_DAYS  # one-time diagnostic or code revision run
         items = pull(os.getenv("CARBON_MAPPER_API_TOKEN"), days=days)
         result = update(prior, items, checked, query_days=days)
     except Exception as e:
