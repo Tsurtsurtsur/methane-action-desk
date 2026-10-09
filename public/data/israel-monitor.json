@@ -5,21 +5,22 @@
   "source_terms_url": "https://carbonmapper.org/terms",
   "scope": "Geographic Israel-region bounding box 34.1–36.0 E, 29.4–33.5 N, including neighboring territories. Not an administrative boundary.",
   "status": "ok",
-  "last_attempt_at": "2026-10-09T13:39:19Z",
-  "last_success_at": "2026-10-09T13:39:19Z",
+  "last_attempt_at": "2026-10-09T13:40:19Z",
+  "last_success_at": "2026-10-09T13:40:19Z",
   "source_error": null,
-  "observation_window_days": 45,
+  "observation_window_days": 365,
+  "backfill_complete": true,
   "minimum_display_rate_kg_h": 300,
   "last_scan_observations": 0,
-  "last_scan_api_records": 0,
+  "last_scan_api_records": 6,
   "last_scan_metadata": {
     "gas_counts": {
-      "CH4": 0,
+      "CH4": 6,
       "CO2": 0,
       "None": 0
     },
     "quality_good": 0,
-    "inside_bbox": 0
+    "inside_bbox": 6
   },
   "new_ids_since_previous_success": 0,
   "first_baseline": false,
