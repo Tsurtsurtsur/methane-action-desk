@@ -1,0 +1,99 @@
+{
+  "project": "CH4 Action Desk — Türkiye",
+  "snapshot_date": "2026-10-08",
+  "methods_note": "Values are means of quantified Tanager-1 methane plume detections, not continuous emissions rates, annual emissions or verified avoided emissions. Source selection requires at least two plumes. UCLA specifies Jan 1 2025 to Jun 1 2026; Guardian graphic has a differing end date. Operator attribution must be confirmed independently.",
+  "source": "https://law.ucla.edu/news/spotlight-top-methane-sources-turkeys-waste-sector",
+  "rates_reference": "https://interactive.guim.co.uk/uploader/embed/2026/09/turkey_methane/giv-32554nJIXUjNjxjVf/",
+  "sites": [
+    {
+      "id": "silivri",
+      "name": "Silivri",
+      "region": "Istanbul",
+      "ch4_tonnes_per_hour_observed": 7.4,
+      "potential_operator": "İSTAÇ (per Guardian reporting)",
+      "operator_confidence": "reported",
+      "next_verification": "Request gas-capture upgrade records and independent follow-up observations."
+    },
+    {
+      "id": "sile",
+      "name": "Şile",
+      "region": "Istanbul",
+      "ch4_tonnes_per_hour_observed": 4,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Confirm exact facility, site geometry and operator; request repairs and monitoring."
+    },
+    {
+      "id": "menemen",
+      "name": "Menemen",
+      "region": "İzmir",
+      "ch4_tonnes_per_hour_observed": 3.9,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Verify source operator and whether methane collection is functioning."
+    },
+    {
+      "id": "izmit",
+      "name": "İzmit",
+      "region": "Kocaeli",
+      "ch4_tonnes_per_hour_observed": 1.5,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Identify landfill boundary, operator and recent observations."
+    },
+    {
+      "id": "osmangazi",
+      "name": "Osmangazi",
+      "region": "Bursa",
+      "ch4_tonnes_per_hour_observed": 1.4,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Confirm source and relevant gas collection maintenance."
+    },
+    {
+      "id": "ayas",
+      "name": "Ayaş",
+      "region": "Ankara",
+      "ch4_tonnes_per_hour_observed": 1.4,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Identify operator and remediation plan."
+    },
+    {
+      "id": "eyupsultan",
+      "name": "Eyüpsultan",
+      "region": "Istanbul",
+      "ch4_tonnes_per_hour_observed": 1.1,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Verify waste site footprint and gas collection system."
+    },
+    {
+      "id": "saricam",
+      "name": "Sarıçam",
+      "region": "Adana",
+      "ch4_tonnes_per_hour_observed": 0.9,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Identify source, operator and follow-up monitoring."
+    },
+    {
+      "id": "kepez",
+      "name": "Kepez",
+      "region": "Antalya",
+      "ch4_tonnes_per_hour_observed": 0.9,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Confirm operator and independent remediation verification."
+    },
+    {
+      "id": "cumra",
+      "name": "Çumra",
+      "region": "Konya",
+      "ch4_tonnes_per_hour_observed": 0.8,
+      "potential_operator": "Unverified",
+      "operator_confidence": "unverified",
+      "next_verification": "Verify source geometry and site operator."
+    }
+  ]
+}

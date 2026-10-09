@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-10-08",
+  "actions": [
+    {
+      "id": "silivri-report",
+      "site_id": "silivri",
+      "status": "research_complete",
+      "description": "Guardian reported observed methane detections and an operator response; no independent remediation verified by this tracker.",
+      "evidence_url": "https://www.theguardian.com/environment/2026/oct/05/methane-mega-leaks-from-un-climate-summit-host-turkey",
+      "outcome_ch4_tonnes_avoided_verified": null
+    },
+    {
+      "id": "ucla-shortlist",
+      "site_id": null,
+      "status": "research_complete",
+      "description": "UCLA reported ten candidate high-emitting waste sites from Tanager-1 observations.",
+      "evidence_url": "https://law.ucla.edu/news/spotlight-top-methane-sources-turkeys-waste-sector",
+      "outcome_ch4_tonnes_avoided_verified": null
+    }
+  ]
+}
