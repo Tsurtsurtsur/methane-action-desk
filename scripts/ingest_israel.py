@@ -17,7 +17,7 @@ API = "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated"
 BBOX = (34.1, 29.4, 36.0, 33.5)
 LOOKBACK_DAYS = 45
 LIMIT = 100
-MAX_PAGES = 15
+MAX_PAGES = 24
 MIN_KG_H = 300
 MAX_PUBLIC_RECORDS = 700
 TIMEOUT = 25
@@ -53,6 +53,7 @@ def pull(token=None, fetch=get_json):
     start = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=LOOKBACK_DAYS)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     query = [("bbox", value) for value in BBOX] + [
         ("plume_gas", "CH4"), ("status", "published"), ("qualities", "good"),
+        ("sectors", "6A"), ("emission_min", MIN_KG_H),
         ("created_at", start + "/.."), ("limit", LIMIT)
     ]
     items = []
@@ -68,11 +69,14 @@ def pull(token=None, fetch=get_json):
         total = response.get("total_count")
         if total is not None and not isinstance(total, int):
             raise ValueError("Unexpected total_count type")
-        if len(batch) < LIMIT and (total is None or len(items) >= total):
+        if len(batch) < LIMIT:
             return items
         if total is not None and len(items) >= total:
             return items
-    raise ValueError("Pagination limit reached; refusing incomplete scan")
+    sample = items[0] if items else {}
+    loc = sample.get("geometry_json", {}).get("coordinates") if isinstance(sample.get("geometry_json"), dict) else None
+    raise ValueError("Pagination limit reached for waste sites; possible ignored bbox/filter. "
+                     + "total=" + str(total) + " first_coordinates=" + str(loc)[:50])
 
 
 def normalize(raw):
