@@ -4,16 +4,16 @@
   "source_url": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
   "source_terms_url": "https://carbonmapper.org/terms",
   "scope": "Geographic Israel-region bounding box 34.1–36.0 E, 29.4–33.5 N, including neighboring territories. Not an administrative boundary.",
-  "status": "source_error",
-  "last_attempt_at": "2026-10-09T13:36:01Z",
-  "last_success_at": null,
-  "source_error": "ValueError: Pagination limit reached; refusing incomplete scan",
+  "status": "ok",
+  "last_attempt_at": "2026-10-09T13:37:25Z",
+  "last_success_at": "2026-10-09T13:37:25Z",
+  "source_error": null,
   "observation_window_days": 45,
   "minimum_display_rate_kg_h": 300,
-  "last_scan_observations": null,
-  "new_ids_since_previous_success": null,
+  "last_scan_observations": 0,
+  "new_ids_since_previous_success": 0,
   "first_baseline": true,
   "observations": [],
   "review_candidates": [],
-  "methodology": "Observations not yet queried. No emissions or mitigation claims."
+  "methodology": "Published good-quality CH4 point observations only. No evidence of continuous emissions, operator, facility, jurisdiction, legal breach or verified abatement. Spatial grouping is a heuristic, not a source match."
 }
