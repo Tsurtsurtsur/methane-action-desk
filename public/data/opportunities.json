@@ -1,0 +1,105 @@
+{
+  "project": "Climate Action Scout",
+  "started_at": "2026-10-09",
+  "review_due": "2026-11-09",
+  "last_researched": "2026-10-09",
+  "purpose": "Identify verifiable implementation bottlenecks whose removal could cause additional greenhouse-gas emissions reductions, rather than maximizing dashboards, alerts or page views.",
+  "independent_verified_abatement_tco2e": 0,
+  "research_themes": [
+    "Local-government clean power delivery",
+    "Grid connections, storage and electrification",
+    "Industrial energy efficiency",
+    "Methane mitigation",
+    "International climate implementation/finance"
+  ],
+  "policy": "Entries are research hypotheses. Funded does not mean delayed; observations do not prove breaches. Never claim financial amounts are presently available, or reductions verified, without evidence. No mass email, lobbying or automatic recipient contact.",
+  "leads": [
+    {
+      "id": "il-local-solar-budget",
+      "title_he": "חסמי מימוש של תקציבי אנרגיה סולארית ברשויות מקומיות",
+      "category": "מימוש אנרגיה מתחדשת",
+      "place": "ישראל",
+      "stage": "researching_bottleneck",
+      "stage_he": "מחקר החסם",
+      "signal": "מבקר המדינה דיווח ביוני 2026: עד יוני 2025 נוצלו כ-39 מיליון ש״ח מתוך 248 מיליון ש״ח שהוקצו בקולות קוראים של משרד האנרגיה בשנים 2021–2025 (כ-16%). אין בכך קביעה שהיתרה עדיין זמינה.",
+      "source_title": "מבקר המדינה – ביקורת שלטון מקומי, יוני 2026",
+      "source_url": "https://library.mevaker.gov.il/sites/DigitalLibrary/Pages/Publications/2153.aspx",
+      "source_publication_date": "2026-06-16",
+      "evidence_level": "official_aggregate",
+      "next_step": "למצוא רשות ופרויקט ספציפיים עם תקציב בתוקף ועיכוב מתועד; לברר מה החסם והאם אפשר לסייע להסרתו.",
+      "missing": "נתוני ניצול מעודכנים, סטטוס לכל פרויקט, בעל תפקיד, אישור שקיים חסם שאינו כבר בטיפול.",
+      "additionality": "unknown",
+      "owner_confirmed": false,
+      "action_deadline": null,
+      "verified_abatement_tco2e": null
+    },
+    {
+      "id": "il-42-solar-canopies",
+      "title_he": "מעקב אחרי 42 מענקי קירוי סולארי שאושרו ביולי 2026",
+      "category": "יישום פרויקטים סולאריים",
+      "place": "ישראל",
+      "stage": "watching_delivery",
+      "stage_he": "מעקב ביצוע",
+      "signal": "משרד האנרגיה הודיע ביולי 2026 על זכייה של 42 רשויות בהקמת קירויים סולאריים למגרשי ספורט, בהספק צפוי של יותר מ-3 מגה-ואט. אין כרגע ראיה שהפרויקטים מתעכבים.",
+      "source_title": "משרד האנרגיה – 42 זוכות במענקי קירוי סולארי",
+      "source_url": "https://www.gov.il/he/pages/news-220726-2",
+      "source_publication_date": "2026-07-22",
+      "evidence_level": "official_announcement",
+      "next_step": "למצוא נתוני יישום לרשות אחת או שתיים והאם פרויקט הושלם, נמצא בהקמה או נתקל בחסם ממשי.",
+      "missing": "מועדים חוזיים, תאריך הפעלה, זהות מנהל פרויקט וסטטוס פיזי עדכני.",
+      "additionality": "unknown",
+      "owner_confirmed": false,
+      "action_deadline": null,
+      "verified_abatement_tco2e": null
+    },
+    {
+      "id": "il-offshore-decommissioning",
+      "title_he": "שימוע פעיל על פירוק תשתיות גז ונפט בים",
+      "category": "אסדרה טכנית – מניעת פליטות",
+      "place": "ישראל",
+      "stage": "initial_screening",
+      "stage_he": "בדיקת רלוונטיות",
+      "signal": "משרד האנרגיה פרסם ב-7 באוקטובר 2026 הזמנה להערות בנושא הוצאת תשתיות נפט וגז טבעי מהשימוש. מפגש שולחן עגול יתקיים ב-2 בדצמבר; הרשמה עד 26 בנובמבר. לא הוכח עדיין שהמסמכים כוללים פער בנושא מניעת פליטות.",
+      "source_title": "משרד האנרגיה – הנחיות לפירוק תשתיות ימיות",
+      "source_url": "https://www.gov.il/he/pages/decommissioning-071026",
+      "source_publication_date": "2026-10-07",
+      "evidence_level": "official_open_process",
+      "next_step": "לבדוק את מסמכי הטיוטה: האם קיימים תנאי מדידה, דיווח וסתימת בארות המפחיתים פליטות? לבקש חוות דעת מומחה לפני כל הגשה.",
+      "missing": "ניתוח ההנחיות וחוות דעת מקצועית לגבי התועלת האקלימית האפשרית.",
+      "additionality": "unknown",
+      "owner_confirmed": false,
+      "action_deadline": "2026-11-26",
+      "verified_abatement_tco2e": null
+    },
+    {
+      "id": "il-methane-pilot",
+      "title_he": "מעקב תצפיות מתאן – פיילוט קיים",
+      "category": "מתאן",
+      "place": "אזור ישראל",
+      "stage": "monitoring_no_partner",
+      "stage_he": "ניטור ללא גורם מבצע",
+      "signal": "מערכת נפרדת אוספת תצפיות לוויין. בלי אימות מקור, מפעיל מסכים ויכולת תיקון, תצפיות אינן הפחתת פליטות.",
+      "source_title": "מערכת ניטור מתאן – פיילוט",
+      "source_url": "https://methane-action-desk.vercel.app/israel.html",
+      "source_publication_date": "2026-10-09",
+      "evidence_level": "project_monitor_unverified",
+      "next_step": "לעבוד רק אם תימצא תצפית מאומתת ושותף מקצועי שמעוניין לקבל ולפעול על מידע.",
+      "missing": "אימות איכות, שיוך מקור, שותף מתקֵן ומדידת לפני/אחרי.",
+      "additionality": "unknown",
+      "owner_confirmed": false,
+      "action_deadline": null,
+      "verified_abatement_tco2e": null
+    }
+  ],
+  "audit_log": [
+    {
+      "date": "2026-10-09",
+      "event": "Month-long cross-sector search launched; four initial evidence-backed research leads recorded. No actions or avoided tonnes independently verified.",
+      "source_urls": [
+        "https://library.mevaker.gov.il/sites/DigitalLibrary/Pages/Publications/2153.aspx",
+        "https://www.gov.il/he/pages/news-220726-2",
+        "https://www.gov.il/he/pages/decommissioning-071026"
+      ]
+    }
+  ]
+}
