@@ -32,3 +32,7 @@ Host as a static site with \`public\` set as the output directory. No accounts, 
 To submit corrections, open a GitHub issue with a dated public source URL. Do not post non-public personal information. The project is a proof of concept; GitHub issues do not represent official complaints or regulatory actions.
 
 Original code is MIT licensed. Source data and media retain their owners' licenses.
+
+## Deployment
+
+The static dashboard is published at https://methane-action-desk.vercel.app. The production branch is `main`; this repository is linked in Vercel for automatic deployment. This documentation update also serves as a non-functional deployment integration check.
