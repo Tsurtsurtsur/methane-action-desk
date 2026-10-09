@@ -80,12 +80,13 @@ def pull(token=None, fetch=get_json, days=LOOKBACK_DAYS):
                      + "total=" + str(total) + " first_coordinates=" + str(loc)[:50])
 
 
-def normalize(raw):
+def normalize(raw, allow_unknown_quality=False):
     if not isinstance(raw, dict) or raw.get("gas") != "CH4":
         return None
     if raw.get("status") != "published" or raw.get("mission_phase") == "first_light":
         return None
-    if raw.get("plume_quality", raw.get("quality")) != "good":
+    quality = raw.get("plume_quality") or raw.get("quality")
+    if quality != "good" and not (allow_unknown_quality and quality is None):
         return None
     g = raw.get("geometry_json")
     if not isinstance(g, dict) or g.get("type") != "Point":
@@ -121,7 +122,8 @@ def normalize(raw):
         "uncertainty_kg_h": uncertainty, "instrument": str(raw.get("instrument") or "")[:20],
         "sector_code_unverified": str(raw.get("sector") or "NA")[:20],
         "geographic_scope": "region_bbox_not_jurisdiction",
-        "attribution": "unknown"
+        "attribution": "unknown",
+        "quality_state": "good" if quality == "good" else "unknown_not_approved"
     }
 
 
@@ -152,6 +154,11 @@ def group_candidates(records):
 def update(prior, raw_items, checked_at, query_days=LOOKBACK_DAYS):
     clean = [normalize(raw) for raw in raw_items]
     recent = [r for r in clean if r]
+    review_only = [normalize(raw, allow_unknown_quality=True) for raw in raw_items]
+    review_only = [r for r in review_only if r and r["quality_state"] == "unknown_not_approved"]
+    unconfirmed = {r["id"]: r for r in prior.get("unconfirmed_quality_observations", [])}
+    for r in review_only:
+        unconfirmed[r["id"]] = r
     by_id = {r["id"]: r for r in prior.get("observations", [])}
     previously_known = set(by_id)
     for r in recent:
@@ -177,6 +184,7 @@ def update(prior, raw_items, checked_at, query_days=LOOKBACK_DAYS):
         "new_ids_since_previous_success": new_count,
         "first_baseline": prior.get("last_success_at") is None,
         "observations": all_records[:MAX_PUBLIC_RECORDS],
+        "unconfirmed_quality_observations": sorted(unconfirmed.values(), key=lambda r: r["acquired_at"], reverse=True)[:100],
         "review_candidates": group_candidates(all_records[:MAX_PUBLIC_RECORDS]),
         "methodology": "Published good-quality CH4 point observations only. No evidence of continuous emissions, operator, facility, jurisdiction, legal breach or verified abatement. Spatial grouping is a heuristic, not a source match."
     }
