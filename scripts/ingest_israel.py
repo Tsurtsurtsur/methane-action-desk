@@ -16,6 +16,7 @@ API = "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated"
 # Geographic region of interest, NOT an administrative border. Includes neighboring territories.
 BBOX = (34.1, 29.4, 36.0, 33.5)
 LOOKBACK_DAYS = 45
+INITIAL_BACKFILL_DAYS = 365
 LIMIT = 100
 MAX_PAGES = 24
 MIN_KG_H = 300
@@ -49,8 +50,8 @@ def get_json(url, token=None, opener=None):
     return json.loads(raw)
 
 
-def pull(token=None, fetch=get_json):
-    start = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=LOOKBACK_DAYS)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+def pull(token=None, fetch=get_json, days=LOOKBACK_DAYS):
+    start = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     query = [("bbox", value) for value in BBOX] + [
         ("plume_gas", "CH4"), ("status", "published"), ("qualities", "good"),
         ("sectors", "6A"), ("emission_min", MIN_KG_H),
@@ -148,7 +149,7 @@ def group_candidates(records):
     return sorted(result, key=lambda r: (-r["max_observed_kg_h"], r["cell"]))[:100]
 
 
-def update(prior, raw_items, checked_at):
+def update(prior, raw_items, checked_at, query_days=LOOKBACK_DAYS):
     clean = [normalize(raw) for raw in raw_items]
     recent = [r for r in clean if r]
     by_id = {r["id"]: r for r in prior.get("observations", [])}
@@ -162,7 +163,8 @@ def update(prior, raw_items, checked_at):
         "source_terms_url": "https://carbonmapper.org/terms",
         "scope": "Geographic Israel-region bounding box 34.1–36.0 E, 29.4–33.5 N, including neighboring territories. Not an administrative boundary.",
         "status": "ok", "last_attempt_at": checked_at, "last_success_at": checked_at,
-        "source_error": None, "observation_window_days": LOOKBACK_DAYS,
+        "source_error": None, "observation_window_days": query_days,
+        "backfill_complete": True,
         "minimum_display_rate_kg_h": MIN_KG_H,
         "last_scan_observations": len(recent),
         "last_scan_api_records": len(raw_items),
@@ -181,8 +183,9 @@ def main():
     prior = json.loads(OUTPUT.read_text(encoding="utf-8"))
     checked = now()
     try:
-        items = pull(os.getenv("CARBON_MAPPER_API_TOKEN"))
-        result = update(prior, items, checked)
+        days = LOOKBACK_DAYS if prior.get("backfill_complete") else INITIAL_BACKFILL_DAYS
+        items = pull(os.getenv("CARBON_MAPPER_API_TOKEN"), days=days)
+        result = update(prior, items, checked, query_days=days)
     except Exception as e:
         # Preserve all previous observations and last successful acquisition.
         result = dict(prior)
