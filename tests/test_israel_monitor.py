@@ -44,6 +44,17 @@ class MonitorTests(unittest.TestCase):
         self.assertFalse(updated["review_candidates"][0]["outreach_approved"])
         self.assertFalse(updated["review_candidates"][0]["operator_identified"])
 
+    def test_quality_missing_is_quarantined_without_outreach(self):
+        item=raw("P",date="2026-10-03T12:00:00Z")
+        item["plume_quality"]=None
+        self.assertIsNone(im.normalize(item))
+        preliminary=im.normalize(item,allow_unknown_quality=True)
+        self.assertEqual(preliminary["quality_state"],"unknown_not_approved")
+        result=im.update({},[item],"2026-10-05T01:00:00Z")
+        self.assertEqual(result["observations"],[])
+        self.assertEqual(len(result["unconfirmed_quality_observations"]),1)
+        self.assertEqual(result["review_candidates"],[])
+
     def test_single_day_not_candidate(self):
         updated=im.update({},[raw("A"),raw("B")],"2026-10-05T01:00:00Z")
         self.assertEqual(updated["review_candidates"],[])
