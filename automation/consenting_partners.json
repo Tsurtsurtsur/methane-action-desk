@@ -1,0 +1,12 @@
+{
+  "partners": [],
+  "purpose": "Explicit opt-in only. No recipient has agreed yet. Do not add emails, operators or recipients without verifiable consent.",
+  "format": {
+    "id": "string",
+    "email": "public organizational address",
+    "consent_evidence_url": "public URL documenting affirmative opt-in",
+    "consent_date": "YYYY-MM-DD",
+    "scope": "approved subject/sector",
+    "max_reports_per_month": "number"
+  }
+}

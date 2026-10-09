@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "Carbon Mapper",
+  "source_url": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+  "source_terms_url": "https://carbonmapper.org/terms",
+  "scope": "Geographic Israel-region bounding box 34.1–36.0 E, 29.4–33.5 N, including neighboring territories. Not an administrative boundary.",
+  "status": "not_started",
+  "last_attempt_at": null,
+  "last_success_at": null,
+  "source_error": null,
+  "observation_window_days": 45,
+  "minimum_display_rate_kg_h": 300,
+  "last_scan_observations": null,
+  "new_ids_since_previous_success": null,
+  "first_baseline": true,
+  "observations": [],
+  "review_candidates": [],
+  "methodology": "Observations not yet queried. No emissions or mitigation claims."
+}
