@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "last_reviewed_at": "2026-10-20",
+  "purpose": "Internal triage only. Do not use for public allegations or automatic outreach. These are spatially nearby observations with missing quality metadata, not verified recurrent leaks.",
+  "source_file": "public/data/israel-monitor.json",
+  "source_last_success_at": "2026-10-19T10:59:25Z",
+  "quality_status": "all_source_observations_missing_explicit_good_quality",
+  "external_outreach_allowed": false,
+  "operator_identification_status": "unknown",
+  "candidates": [
+    {
+      "id": "unconfirmed-cell-35.21-32.38",
+      "observation_ids": [
+        "tan20260415t094921c69s4001-A",
+        "tan20260529t093916c83s4001-B"
+      ],
+      "dates": [
+        "2026-04-15",
+        "2026-05-29"
+      ],
+      "separation_m_approx": 210,
+      "observation_rates_kg_h": [
+        1793,
+        2624.9
+      ],
+      "quality": "unknown_not_approved",
+      "interpretation": "Two separate satellite observations within approximately 210 metres, 44 days apart. Not evidence of a continuous leak or a single facility.",
+      "next_action": "Seek quality metadata from data provider; only then review independent facility geography and attribution.",
+      "status": "hold_for_quality_validation"
+    },
+    {
+      "id": "unconfirmed-cell-35.20-31.13",
+      "observation_ids": [
+        "emi20251019t091903p06003-A",
+        "tan20260806t094535c45s4001-A"
+      ],
+      "dates": [
+        "2025-10-19",
+        "2026-08-06"
+      ],
+      "separation_m_approx": 478,
+      "observation_rates_kg_h": [
+        1010.2,
+        593.8
+      ],
+      "quality": "unknown_not_approved",
+      "interpretation": "Two observations within approximately 478 metres, on dates many months apart and from different instruments. Not evidence of a continuous leak or a single facility.",
+      "next_action": "Seek quality metadata and independent geospatial corroboration before interpreting as one source.",
+      "status": "hold_for_quality_validation"
+    }
+  ],
+  "notes": "No new qualified detections in the latest 45-day scan. API last successful on 2026-10-19. There are no approved outreach partners. No messages sent."
+}
